@@ -1,7 +1,7 @@
 # glibcver-endian-checker
 A code to check GNU base libc version and endianness.
 
-Purpose: RE, Incident and Response or DFIR related.
+Purpose: RE, Incident and Response or DFIR related, native limited CLI check tool pre IR analysis.
 
 in Japanese:
 
@@ -13,7 +13,7 @@ in Japanese:
 
 # howto
 
-Requirement: gcc
+Requirement: gcc or cc
 
 Compilation and test run command:
 
@@ -34,6 +34,10 @@ glibcver-endian-checker: ELF 32-bit MSB executable, PowerPC or cisco 4500, versi
 $ ls -alF glibcver-endian-checker|cut{blah}
 6210 May 20 16:51 glibcver-endian-checker*
 ```
+
+# warning
+
+nothing's fancy here, just a tool to help people in need, do not abuse.
 
 # working PoC
 
@@ -75,6 +79,19 @@ Thu May 21 00:35:58 JST 2020
 $ # @unixfreaxjp
 $
 ```
+
+# pic
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3cIvissSnTsk58fzwet5odaFTKZXj_FU_uyFOfgBcMMp8LGmK80aSMwHA1PYFv5MiUHjutAMWXaJtnrvsb4BjFFWfCHr1vFdM970_xDrqrdx4eRiKy2Yny0fR5UfuQmNvBODgLiO2dHn5p0yFGiYwhl4A=w900-h629-no)
+
+# checklist / 確認済みの内容
+
+1. CPUプラットフォーム(arch)： arm32, arm64, arm64el, armel, mips, mips64el, ppc32, sparc32
+2. テストしたglibc: >= 2.13
+
+# todo: 
+1. (追加機能として/as additional) pre-defined macro OS 
+2. GNU以外の対応 (other libc)
 
 # bug maintainance - memo
 
