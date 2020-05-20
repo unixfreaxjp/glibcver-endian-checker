@@ -3,6 +3,14 @@ A code to check GNU base libc version and endianness.
 
 Purpose: RE, Incident and Response or DFIR related.
 
+in Japanese:
+
+「DFIRの皆さん」が侵害されたLinux システムの標準GNU C実行ライブラリ環境(glibc)とエンディアン情報を高速に検出するのに役立つ簡単なC言語でツールをコーディングしました。
+
+ビットのチェックやOS predefined macroの認識のツールがいくつかありますけど、glibcバーションとエンディアンの CLIでのネイティブな直ぐにチェックが出来るツールが何故か見つかりませんでしたので、その原因でさくっと作りました。
+
+一応GNU系のLinuxOS、Intel以外プロセッサーを搭載したサーバ、若しくは IoT や ICS 組み込み器械、特にホットフォレンジックと IR 対応プロセスの時に便利かと思います。コード的に珍しくはないですけど便利なので自分もよく使っていますし、そろそろ公開したほうがいいかと思いました。インシデントの対応する時にぜひ使って下さい。もし変更したい場合fork経由でお願いいたします。 #seccamp 2017-2019 Z1の @unixfreaxjp
+
 # howto
 
 Compilation and test run command
@@ -14,9 +22,9 @@ $ ./check-gcc-endian
 
 # size
 
-if you worry for included library size, omit static & strip it. 
+If you worry for included library size, omit static build & strip it. 
 
-If you compiled it as per it i as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above.
+If you compiled it as per it i as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above).
 
 ```bash
 $ file glibcver-endian-checker
