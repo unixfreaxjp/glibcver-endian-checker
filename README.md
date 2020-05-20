@@ -13,7 +13,9 @@ in Japanese:
 
 # howto
 
-Compilation and test run command
+Requirement: gcc
+
+Compilation and test run command:
 
 ```bash
 $ gcc check-gcc-endian.c -o check-gcc-endian
