@@ -15,18 +15,27 @@ in Japanese:
 
 Requirement: gcc or cc
 
-Compilation and test run command:
+1. Manual compilation and run yourself the command (for offline system):
 
 ```bash
 $ gcc check-gcc-endian.c -o check-gcc-endian
 $ ./check-gcc-endian
 ```
 
+2. If the system is connected to the internet and having git, you can automate it into below copy paste of 2 lines:
+
+```bash
+git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
+cd glibcver-endian-checker&&make&&./glibcver-endian-checker&&make clean;cd ..
+```
+
+Noted: Without git, you can modify the script by downloading the zip from this github
+
 # size
 
 If you worry for included library size, omit static build & strip it. 
 
-If you compiled it as per it i as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above).
+If you compiled it as per it as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above).
 
 ```bash
 $ file glibcver-endian-checker
@@ -41,7 +50,28 @@ nothing's fancy here, just a tool to help people in need, do not abuse.
 
 # working PoC
 
+The automation with git clone, it is fast enough :)
+```bash
+unixfreaxjp@powerpc:~/gittest$ date;git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
+Thu May 21 02:13:01 UTC 2020
+Cloning into 'glibcver-endian-checker'...
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 24 (delta 5), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (24/24), done.
+unixfreaxjp@powerpc:~/gittest$ cd glibcver-endian-checker&&make&&./glibcver-endian-checker&&make clean;cd ..
+gcc -g -o glibcver-endian-checker check-gcc-endian.c
+Checked Glibc ver: 2.13
+Checked Endian: BigEndian
+rm -f glibcver-endian-checker *.o *~
+unixfreaxjp@powerpc:~/gittest$ date
+Thu May 21 02:13:14 UTC 2020
+unixfreaxjp@powerpc:~/gittest$ 
 ```
+
+Some testing results on various CPU Linux systems:
+```bash
 $ uname -smpio
 Linux i686 unknown unknown GNU/Linux
 $ gcc check-gcc-endian.c -o check-gcc-endian
