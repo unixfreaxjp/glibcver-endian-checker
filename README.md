@@ -29,7 +29,7 @@ git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
 cd glibcver-endian-checker&&make&&./glibcver-endian-checker&&make clean;cd ..
 ```
 
-Noted: Without git, you can modify the script by downloading the zip from this github
+Noted: Without git, you can modify the script by downloading the zip from this github or your hosts.
 
 # size
 
