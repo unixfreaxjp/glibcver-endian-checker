@@ -21,21 +21,21 @@ Requirement: gcc or cc
 $ gcc check-gcc-endian.c -o check-gcc-endian
 $ ./check-gcc-endian
 ```
+Note: The build command is relatively short, if you only handle a system using this method is better than following second method.
 
-2. If the system is connected to the internet and having git, you can automate it into below copy paste of 2 lines:
+2. If the system is connected to the internet and having `make` and `git`, you can automate the process into below copy paste of two liners:
 
 ```bash
 git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
 cd glibcver-endian-checker&&make&&./glibcver-endian-checker&&make clean;cd ..
 ```
-
-Noted: Without git, you can modify the script by downloading the zip from this github or from your hosts.
+Note: Without `git`, you can still modify the script by downloading as zip from this github or from your hosts. This method is useful if you deal with devices like IoT or other instruments in a network with the internet connection.
 
 # size
 
-If you worry for included library size, omit static build, delete "-g" from [Makefile line 4](https://github.com/unixfreaxjp/glibcver-endian-checker/blob/master/Makefile#L4) & strip it after manually built. 
+If you worry for included library size, omit static build, delete "-g" from [Makefile line 4](https://github.com/unixfreaxjp/glibcver-endian-checker/blob/master/Makefile#L4) & strip it (with option `--strip-unneeded` and/or `--remove-section=.XXX`) after manually built. 
 
-If you compiled it as per it as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above). With the Makefile it will be added with the debug symbols. Yet the size is relatively small enough to run it into small storage size. You can weak it smaller too with assembly compilation but I will not cover it in here. 
+If you compiled it as per it as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above). With the Makefile it will be added with the debug symbols. Yet the size is relatively small enough to run it into small storage size. You can tweak it smaller too with assembly compilation but I will not cover it in here. 
 
 ```bash
 $ file glibcver-endian-checker
