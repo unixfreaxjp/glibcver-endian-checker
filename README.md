@@ -50,7 +50,7 @@ nothing's fancy here, just a tool to help people in need, do not abuse.
 
 # working PoC
 
-The automation with git clone, it is fast enough :)
+The automation with git clone (2 lines of commands), it is fast enough :)
 ```bash
 unixfreaxjp@powerpc:~/gittest$ date;git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
 Thu May 21 02:13:01 UTC 2020
