@@ -1,15 +1,15 @@
 # glibcver-endian-checker
 A code to check GNU base libc version and endianness.
 
-Purpose: RE, Incident and Response or DFIR related, native limited CLI check tool pre IR analysis.
+Purpose: RE, Incident and Response or DFIR related, native limited CLI check tool pre IR analysis, small and fast.
 
 in Japanese:
 
-「DFIRの皆さん」が侵害されたLinux システムの標準GNU C実行ライブラリ環境(glibc)とエンディアン情報を高速に検出するのに役立つ簡単なC言語でツールをコーディングしました。
+DFIRの皆さんが侵害されたLinuxシステムの標準GNU-C実行ライブラリ環境(glibc)とエンディアン情報を高速に検出するのに役立つ簡単なC言語でツールをコーディングしました。
 
 ビットのチェックやOS predefined macroの認識のツールがいくつかありますけど、glibcバーションとエンディアンの CLIでのネイティブな直ぐにチェックが出来るツールが何故か見つかりませんでしたので、その原因でさくっと作りました。
 
-一応GNU系のLinuxOS、Intel以外プロセッサーを搭載したサーバ、若しくは IoT や ICS 組み込み器械、特にホットフォレンジックと IR 対応プロセスの時に便利かと思います。コード的に珍しくはないですけど便利なので自分もよく使っていますし、そろそろ公開したほうがいいかと思いました。インシデントの対応する時にぜひ使って下さい。もし変更したい場合fork経由でお願いいたします。 #seccamp 2017-2019 Z1の @unixfreaxjp
+一応GNU系のLinuxOS、Intel以外プロセッサーを搭載したサーバ、若しくは IoT や ICS 組み込み器械、特にホットフォレンジックと IR 対応プロセスの時に便利かと思います。コード的に珍しくはないですけど便利なので自分もよく使っていますし、そろそろ公開したほうがいいかと思いました。インシデントの対応する時にぜひ使って下さい。もし変更したい場合fork経由でお願いいたします。 #seccamp 2017-2019 ZトラックZ1コースの @unixfreaxjp
 
 # howto
 
@@ -29,13 +29,13 @@ git clone https://github.com/unixfreaxjp/glibcver-endian-checker.git
 cd glibcver-endian-checker&&make&&./glibcver-endian-checker&&make clean;cd ..
 ```
 
-Noted: Without git, you can modify the script by downloading the zip from this github or your hosts.
+Noted: Without git, you can modify the script by downloading the zip from this github or from your hosts.
 
 # size
 
-If you worry for included library size, omit static build & strip it. 
+If you worry for included library size, omit static build, delete "-g" from [Makefile line 4](https://github.com/unixfreaxjp/glibcver-endian-checker/blob/master/Makefile#L4) & strip it after manually built. 
 
-If you compiled it as per it as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above).
+If you compiled it as per it as per above example, it will be a dynamically linked ELF w/symbols, and the size is about below (you can make it smaller using the advise above). With the Makefile it will be added with the debug symbols. Yet the size is relatively small enough to run it into small storage size. You can weak it smaller too with assembly compilation but I will not cover it in here. 
 
 ```bash
 $ file glibcver-endian-checker
