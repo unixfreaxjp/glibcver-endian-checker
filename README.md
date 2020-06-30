@@ -129,4 +129,4 @@ contact: @unixfreaxjp
 
 # license 
 
-<a href=https://en.wikipedia.org/wiki/WTFPL>WTFPL version 2</a>
+[WTFPL version 2](https://en.wikipedia.org/wiki/WTFPL)
